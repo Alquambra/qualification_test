@@ -1,0 +1,35 @@
+mkdir bot_backend
+cd bot_backend
+python3 -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+export FLASK_APP=flaskapp.py
+
+Хост 127.0.0.1 Порт 5000
+
+
+GET http://127.0.0.1:5000/shop - получить категории товаров
+GET http://127.0.0.1:5000/shop/Название+категории - получить производителей товара с фильтром по категории
+GET http://127.0.0.1:5000/shop/Название+категории/Производитель - получить товары с фильтром по производителю и категории
+
+GET http://127.0.0.1:5000/user - получить всех юзеров
+GET http://127.0.0.1:5000/user/id - получить данные конкретного юзера по его id
+
+POST http://127.0.0.1:5000/user
+{"name": value, "phone": value}
+Создать пользователя с name и phone
+
+DELETE http://127.0.0.1:5000/user/id - Удалить конкретного пользователя по id
+
+GET http://127.0.0.1:5000/order
+{"phone": value}
+Получить заказы пользователя по его номеру телефона phone
+
+GET http://127.0.0.1:5000/order/id - Получить данные конкретного заказа по id
+
+POST http://127.0.0.1:5000/order
+{"user_id": value, "hardware_good_id": value}
+Добавить заказ в корзину к пользователю
+
+DELETE http://127.0.0.1:5000/order/order_id - Удалить конкретный заказ по id
+
